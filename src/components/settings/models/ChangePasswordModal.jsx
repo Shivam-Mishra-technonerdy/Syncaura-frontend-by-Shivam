@@ -45,7 +45,7 @@ const ChangePasswordModal = ({ onClose }) => {
   return (
     <AnimatePresence>
       <motion.div
-        className="absolute inset-0 z-50 flex items-center justify-center"
+        className="fixed inset-0 z-50 flex items-center justify-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -53,7 +53,7 @@ const ChangePasswordModal = ({ onClose }) => {
         {/* Backdrop */}
         <div
           onClick={onClose}
-          className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm"
         />
 
         {/* Modal */}

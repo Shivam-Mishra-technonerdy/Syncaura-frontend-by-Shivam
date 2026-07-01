@@ -1,16 +1,19 @@
 import { Loader, Mail } from "lucide-react";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import SocialAuthButton from "../components/auth/SocialAuthButton";
 import { motion } from "framer-motion";
 import PasswordField from "../components/auth/PasswordField";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import AnimatedInput from "../components/auth/AnimatedInput";
 import { toast } from "react-toastify";
 import { loginUser } from "../redux/features/authThunks";
 import { useDispatch, useSelector } from "react-redux";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub, FaFacebook } from "react-icons/fa";
+import BASE_URL from "../config/routes";
+import { setCredentials } from "../redux/slices/authSlice";
+
 
 const SignIn = () => {
   const {
@@ -23,12 +26,64 @@ const SignIn = () => {
 
   const wrapperRef = useRef(null);
   const passRef = useRef(null);
+  const [isSubmitting, setIsSubmitting]=useState(false);
+  const navigate=useNavigate();
+  const [searchParams] = useSearchParams();
+
+  const handleGoogleLogin = () => {
+    try {
+      window.location.href = `${BASE_URL}/api/auth/google`;
+    } catch (error) {
+      console.error("Google login initiation failed:", error);
+      toast.error("Failed to initiate Google Login. Please try again.");
+    }
+  };
+
+  useEffect(() => {
+    const error = searchParams.get("error");
+    const token = searchParams.get("token") || searchParams.get("accessToken");
+    const refreshToken = searchParams.get("refreshToken");
+    const role = searchParams.get("role");
+    const userName = searchParams.get("name");
+
+    if (error) {
+      toast.error(decodeURIComponent(error));
+      navigate("/sign-in", { replace: true });
+    } else if (token) {
+      localStorage.setItem("token", token);
+      localStorage.setItem("accessToken", token);
+      if (refreshToken) {
+        localStorage.setItem("refreshToken", refreshToken);
+      }
+
+      dispatch(
+        setCredentials({
+          user: { name: userName || "User", role: role || "user" },
+          token,
+        })
+      );
+
+      toast.success(`Welcome Back ${userName || "User"}!!`);
+
+      switch (role) {
+        case "Admin":
+          navigate("/admin");
+          break;
+        case "Co-Admin":
+          navigate("/co-admin");
+          break;
+        default:
+          navigate("/user-dashboard");
+      }
+    }
+  }, [searchParams, dispatch, navigate]);
+
   const socialProviders = [
     {
       id: "google",
       icon: "/images/Auth/google.png",
       alt: "Google login",
-      onClick: () => console.log("Google Login"),
+      onClick: handleGoogleLogin,
     },
     {
       id: "github",
@@ -43,8 +98,6 @@ const SignIn = () => {
       onClick: () => console.log("Facebook Login"),
     },
   ];
-  const [isSubmitting, setIsSubmitting]=useState(false)
-  const navigate=useNavigate()
 
   const handleFocus = (ref) => {
     ref.current?.classList.add(
@@ -163,7 +216,7 @@ const SignIn = () => {
 </div>
 
 <div className="flex justify-center gap-4 mb-4">
-  <button className="border p-2 rounded-md hover:shadow">
+  <button type="button" onClick={handleGoogleLogin} className="border p-2 rounded-md hover:shadow">
     <FcGoogle size={20} />
   </button>
   <button className="border p-2 rounded-md hover:shadow">

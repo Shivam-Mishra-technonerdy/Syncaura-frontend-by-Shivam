@@ -13,6 +13,7 @@ import UserDashboard from "./pages/UserDashboard";
 import Dashboard from "./pages/Dashboard";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import AuthCallback from "./pages/AuthCallback";
 import Header from "./components/Meeting/Header/Header";
 import MobileSidebar from "./components/MobileSidebar";
 import Complaints from "./pages/Complaints";
@@ -85,6 +86,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/sign-in" element={<SignIn />} />
             <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/auth/callback" element={<AuthCallback />} />
           </Route>
 
           <Route

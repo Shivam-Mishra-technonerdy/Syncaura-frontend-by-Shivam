@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Sun, Moon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useDarkMode } from "../../hooks/useDarkMode";
@@ -6,6 +7,7 @@ import { useDarkMode } from "../../hooks/useDarkMode";
 const Navbar = () => {
   const { theme, toggleTheme } = useDarkMode();
   const [activeSection, setActiveSection] = useState('home');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -108,14 +110,18 @@ const Navbar = () => {
             )}
           </button>
 
-          <Link to="/sign-in" className="text-sm font-medium hover:opacity-80 transition-opacity" style={{ 
-            color: 'var(--accent-color)' 
-          }}>
+          <button 
+            onClick={() => navigate('/sign-in')}
+            className="text-sm font-medium hover:opacity-80 transition-opacity bg-transparent border-0 cursor-pointer" 
+            style={{ 
+              color: 'var(--accent-color)' 
+            }}
+          >
             Login
-          </Link>
+          </button>
 
-          <Link
-            to="/sign-up"
+          <button
+            onClick={() => navigate('/sign-up')}
             className="px-6 py-2 text-sm font-medium rounded-md hover:opacity-90 transition-opacity"
             style={{
               backgroundColor: "var(--accent-color)",
@@ -135,8 +141,8 @@ const Navbar = () => {
             FLOWBIT
           </div>
           
-          <Link
-            to="/sign-up"
+          <button
+            onClick={() => navigate('/sign-up')}
             className="px-4 py-1 text-s font-medium rounded-[10px]"
             style={{
               backgroundColor: "var(--accent-color)",

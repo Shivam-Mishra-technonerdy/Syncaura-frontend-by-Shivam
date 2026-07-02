@@ -1,15 +1,20 @@
-import { Loader } from "lucide-react";
 import React, { useRef, useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub, FaFacebook } from "react-icons/fa";
-import { loginUser } from "../redux/features/authThunks";
 import { validationRules } from "../constant/validationRules";
 import { handleError, handleSuccess } from "../services/errorHandler";
 import BASE_URL from "../config/routes";
 import { setCredentials } from "../redux/slices/authSlice";
+import { Loader } from "lucide-react";
+import { useForm } from "react-hook-form";
+// import SocialAuthButton from "../components/auth/SocialAuthButton";
+// import { motion } from "framer-motion";
+// import PasswordField from "../components/auth/PasswordField";
+// import AnimatedInput from "../components/auth/AnimatedInput";
+// import { toast } from "react-toastify";
+import { loginUser } from "../redux/features/authThunks";
 
 const SignIn = () => {
   const {
@@ -59,10 +64,10 @@ const SignIn = () => {
       handleSuccess(`Welcome Back ${userName || "User"}!!`);
 
       switch (role) {
-        case "Admin":
+        case "admin":
           navigate("/admin");
           break;
-        case "Co-Admin":
+        case "co-admin":
           navigate("/co-admin");
           break;
         default:
@@ -80,10 +85,10 @@ const SignIn = () => {
       handleSuccess(`Welcome Back ${res?.user?.name || "User"}!!`);
 
       switch (res?.user?.role) {
-        case "Admin":
+        case "admin":
           navigate("/admin");
           break;
-        case "Co-Admin":
+        case "co-admin":
           navigate("/co-admin");
           break;
         default:
@@ -95,6 +100,7 @@ const SignIn = () => {
     }
   };
 
+  
   const onError = (formErrors) => {
     // ❌ ERROR HANDLING (Vedant): Display validation errors as toasts
     const firstError = Object.values(formErrors)[0];

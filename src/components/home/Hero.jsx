@@ -1,8 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import heroTeam from "../../assets/hero-team.png";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
   const scrollToFeatures = (e) => {
     e.preventDefault();
     const element = document.getElementById('features');

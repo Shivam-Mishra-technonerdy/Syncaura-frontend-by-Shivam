@@ -1,13 +1,15 @@
 import { Loader } from "lucide-react";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub, FaFacebook } from "react-icons/fa";
 import { loginUser } from "../redux/features/authThunks";
 import { validationRules } from "../constant/validationRules";
 import { handleError, handleSuccess } from "../services/errorHandler";
+import BASE_URL from "../config/routes";
+import { setCredentials } from "../redux/slices/authSlice";
 
 const SignIn = () => {
   const {
@@ -18,7 +20,56 @@ const SignIn = () => {
   
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const { isLoading } = useSelector((state) => state.auth);
+
+  const handleGoogleLogin = () => {
+    try {
+      window.location.href = `${BASE_URL}/api/auth/google`;
+    } catch (error) {
+      console.error("Google login initiation failed:", error);
+      handleError("Failed to initiate Google Login. Please try again.");
+    }
+  };
+
+  useEffect(() => {
+    const error = searchParams.get("error");
+    const token = searchParams.get("token") || searchParams.get("accessToken");
+    const refreshToken = searchParams.get("refreshToken");
+    const role = searchParams.get("role");
+    const userName = searchParams.get("name");
+
+    if (error) {
+      handleError(decodeURIComponent(error));
+      navigate("/sign-in", { replace: true });
+    } else if (token) {
+      localStorage.setItem("token", token);
+      localStorage.setItem("accessToken", token);
+      if (refreshToken) {
+        localStorage.setItem("refreshToken", refreshToken);
+      }
+
+      dispatch(
+        setCredentials({
+          user: { name: userName || "User", role: role || "user" },
+          token,
+        })
+      );
+
+      handleSuccess(`Welcome Back ${userName || "User"}!!`);
+
+      switch (role) {
+        case "Admin":
+          navigate("/admin");
+          break;
+        case "Co-Admin":
+          navigate("/co-admin");
+          break;
+        default:
+          navigate("/user-dashboard");
+      }
+    }
+  }, [searchParams, dispatch, navigate]);
 
   const onSubmit = async (data) => {
     try {
@@ -137,7 +188,7 @@ const SignIn = () => {
             </div>
 
             <div className="flex justify-center gap-4 mb-4">
-              <button type="button" className="border p-2 rounded-md hover:shadow cursor-pointer">
+              <button type="button" onClick={handleGoogleLogin} className="border p-2 rounded-md hover:shadow cursor-pointer">
                 <FcGoogle size={20} />
               </button>
               <button type="button" className="border p-2 rounded-md hover:shadow cursor-pointer">

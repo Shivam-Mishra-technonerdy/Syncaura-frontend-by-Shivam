@@ -8,7 +8,7 @@ const api = axios.create({
 // Request interceptor: attach accessToken to headers
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("accessToken");
+    const token = localStorage.getItem("accessToken") || localStorage.getItem("token");
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -98,4 +98,4 @@ api.interceptors.response.use(
   }
 );
 
-export default api;
+export default api;

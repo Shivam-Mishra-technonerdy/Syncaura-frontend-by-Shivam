@@ -1,51 +1,49 @@
 # Syncaura Frontend 🚀
 
-Syncaura Frontend is a modern, scalable **React-based frontend application** built using **Vite** and **Tailwind CSS**.
-It provides a dashboard-driven user interface for managing projects, tasks, chats, attendance, meetings, and more.
+Syncaura Frontend is a modern and scalable **React-based web application** built with **Vite** and **Tailwind CSS**. It provides an intuitive dashboard interface for managing projects, tasks, chats, attendance, meetings, notices, and other organizational activities.
 
-The project follows a **clean modular architecture** to ensure maintainability and smooth team collaboration.
+The application follows a **clean, modular architecture** that improves maintainability, scalability, and collaboration among development team members.
 
 ---
-
 ## 📁 Repository Structure
 
-This section explains the frontend folder structure and the purpose of each directory and important file.
+The following structure provides an overview of the frontend project organization. Each directory is designed to keep the codebase modular, maintainable, and easy to navigate.
 
 ```bash
 FRONTEND/
 │
 ├── public/
-│   ├── background/        # Background images used across the app
-│   ├── fonts/             # Custom fonts
-│   ├── images/            # Static images
+│   ├── background/           # Background images used across the application
+│   ├── fonts/                # Custom fonts
+│   ├── images/               # Static images and assets
 │   └── vite.svg
 │
 ├── src/
-│   ├── assets/            # Icons, images, and other static assets
+│   ├── assets/               # Icons, images, and other static assets
 │   │
-│   ├── components/        # Reusable UI components
-│   │   ├── admin        #admin component   
-│   │   ├── AttendanceLeave/   #Attendance Leave component
-│   │   ├── auth/          # Authentication components (SignIn, SignUp)
-│   │   ├── chats/         # Chat components
-│   │   ├── complaints/    # complaint components
-│   │   ├── dashboard/     # Admin dashboard components
-│   │   ├── Document/      # Documnet components
-│   │   ├── Meeting/       # Meeting components
-│   │   ├── notice/       # Notice components
-│   │   ├── projects/      # Projects components
-│   │   ├── userdashboard/ # User dashboard components
-│   │   ├── FilterDropdown.jsx # animated reusable dropdown component
-│   │   ├── SupportChatbot.jsx # Chatbot Component
-│   │   └── MobileSidebar.jsx 
-│   │ 
-│   ├── constant/          # constant reusable folder
-│   │   └── constant.js    # constant data
-│   │ 
-│   ├── layouts/           # Layout components
-│   │   └── MainLayout.jsx # Common layout wrapper (Header, Sidebar)
+│   ├── components/           # Reusable UI components
+│   │   ├── admin/            # Admin components
+│   │   ├── AttendanceLeave/  # Attendance and Leave components
+│   │   ├── auth/             # Authentication components (Sign In, Sign Up)
+│   │   ├── chats/            # Chat components
+│   │   ├── complaints/       # Complaint management components
+│   │   ├── dashboard/        # Dashboard components
+│   │   ├── Document/         # Document management components
+│   │   ├── Meeting/          # Meeting components
+│   │   ├── notice/           # Notice components
+│   │   ├── projects/         # Project components
+│   │   ├── userdashboard/    # User dashboard components
+│   │   ├── FilterDropdown.jsx    # Reusable animated dropdown component
+│   │   ├── SupportChatbot.jsx    # Support chatbot component
+│   │   └── MobileSidebar.jsx     # Mobile sidebar component
 │   │
-│   ├── pages/             # Page-level components
+│   ├── constant/             # Reusable constants
+│   │   └── constant.js       # Constant values
+│   │
+│   ├── layouts/              # Layout components
+│   │   └── MainLayout.jsx    # Common layout wrapper (Header & Sidebar)
+│   │
+│   ├── pages/                # Application pages
 │   │   ├── Attendance.jsx
 │   │   ├── Admin.jsx
 │   │   ├── Chat.jsx
@@ -62,89 +60,105 @@ FRONTEND/
 │   │   ├── Tasks.jsx
 │   │   └── UserDashboard.jsx
 │   │
-│   ├── redux/             # Global state management
-│   │   ├── slices 
-│   │   │   └── themeSlice.js  # Theme (dark/light) Slice 
-│   │   └── store.js # reduc store store
+│   ├── redux/                # Global state management
+│   │   ├── slices/
+│   │   │   └── themeSlice.js # Theme (Light/Dark) slice
+│   │   └── store.js          # Redux store configuration
 │   │
-│   ├── App.jsx            # Root React component
-│   └── main.jsx           # Application entry point
+│   ├── App.jsx               # Root React component
+│   └── main.jsx              # Application entry point
 │
-├── .gitignore             # Git ignored files and folders
-├── eslint.config.js       # ESLint configuration
-├── index.html             # HTML entry file
-├── package.json           # Project dependencies and scripts
-├── package-lock.json      # Locked dependency versions
-├── README.md              # Project documentation
-└── vite.config.js         # Vite configuration
+├── .gitignore                # Ignored files and folders
+├── eslint.config.js          # ESLint configuration
+├── index.html                # HTML entry point
+├── package.json              # Project dependencies and scripts
+├── package-lock.json         # Locked dependency versions
+├── README.md                 # Project documentation
+└── vite.config.js            # Vite configuration
 ```
 
 ---
+## 📌 Routes
 
-## Routes
-* "/normal-dashboard" => **Normal dashboard Page**
-* "/sign-up" => **Sign-Up Page**
-* "/user-dashboard" => **User dashboard Page**
-* "/meetings" => **Meeting Page**
-* "/chat" => **Chat Page**
-* "/complaints" => **Complaint Page**
-* "/projects" => **Projects Page**
-* "/attendance-leave" => **Attendance Leave Page**
-* "/settings" => **Setting Page**
-* "/" => **Home Page**
-* "/notice" => **Notice Page**
-* "/settings" => **Setting Page**
-* "/admin" => **Admin Page**
+| Route | Description |
+|--------|-------------|
+| `/` | Home Page |
+| `/sign-up` | Sign-Up Page |
+| `/normal-dashboard` | Normal Dashboard |
+| `/user-dashboard` | User Dashboard |
+| `/admin` | Admin Dashboard |
+| `/projects` | Projects Page |
+| `/chat` | Chat Page |
+| `/meetings` | Meetings Page |
+| `/attendance-leave` | Attendance & Leave Page |
+| `/complaints` | Complaints Page |
+| `/notice` | Notice Page |
+| `/settings` | Settings Page |
+
+---
 
 ## 🧩 Features Overview
 
 ### 📊 Dashboard
 
-* Admin and User dashboards
-* Statistics cards
-* Interactive charts using **Chart.js**
-* Fully responsive layouts
+- Admin and User dashboards
+- Statistics cards
+- Interactive charts using **Chart.js**
+- Fully responsive layouts
 
 ### 🔐 Authentication
 
-* Sign In & Sign Up UI
-* Role-based pages (Admin / User)
-* Ready for JWT-based authentication
+- Sign In and Sign Up interfaces
+- Role-based pages (Admin/User)
+- Form validation for authentication
 
 ### 💬 Chat Module
 
-* Real-time chat UI
-* Designed for Socket.IO backend integration
+- Real-time chat interface
+- User-friendly chat experience
+- Responsive chat layout
 
 ### 📁 Project & Task Management
 
-* Project listing and overview
-* Task management UI
-* Clean and intuitive design
+- Project listing and overview
+- Task management interface
+- Clean and intuitive user experience
 
 ### 📅 Attendance & Meetings
 
-* Attendance tracking interface
-* Meetings scheduling UI
+- Attendance tracking interface
+- Meeting management interface
+- Easy navigation for attendance and meeting records
 
 ### 🌗 Theme Support
 
-* Light / Dark mode
-* Global theme management using Zustand
-* Tailwind CSS + CSS variables
+- Light and Dark mode
+- Global theme management using **Redux Toolkit**
+- Responsive UI built with Tailwind CSS
 
 ---
 
 ## 🛠 Tech Stack
 
-* **React.js**
-* **Vite**
-* **Tailwind CSS**
-* **Zustand** (State Management)
-* **Chart.js**
-* **React Chart.js 2**
-* **JavaScript (ES6+)**
-* **HTML5 & CSS3**
+- **React.js**
+- **Vite**
+- **Tailwind CSS**
+- **Redux Toolkit** (State Management)
+- **Chart.js**
+- **React Chart.js 2**
+- **JavaScript (ES6+)**
+- **HTML5**
+- **CSS3**
+
+---
+
+## 📋 Prerequisites
+
+Before running this project, ensure you have the following installed:
+
+- **Node.js** (v18 or later)
+- **npm** (v9 or later)
+- **Git**
 
 ---
 
@@ -153,8 +167,8 @@ FRONTEND/
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone "https://github.com/your-org/syncaura-frontend.git"
-cd  Syncaura-frontend
+git clone https://github.com/Uptoskillssyncaura/Syncaura-frontend.git
+cd Syncaura-frontend
 ```
 
 ### 2️⃣ Install Dependencies
@@ -163,72 +177,84 @@ cd  Syncaura-frontend
 npm install
 ```
 
-### 3️⃣ Run the Development Server
+### 3️⃣ Configure Environment Variables
+
+Create a `.env` file in the project root and add:
+
+```env
+VITE_API_URL=http://localhost:5000/api
+```
+
+Update the value according to your backend server.
+
+### 4️⃣ Run the Development Server
 
 ```bash
 npm run dev
 ```
 
-Open your browser at:
+Open your browser and visit:
 
-```
+```text
 http://localhost:5173
 ```
-
----
-
 ## 🔗 Backend Integration
 
-This frontend is designed to work with the **Syncaura Backend** mono-repository, including:
+The Syncaura Frontend communicates with the backend using **Axios** and REST APIs.
 
-* Authentication APIs
-* CRUD services
-* Attendance & leave management
-* Real-time chat (Socket.IO)
+The backend API base URL is configured through the environment variable:
 
-API base URLs can be configured using environment variables.
+```env
+VITE_API_URL=http://localhost:5000/api
+```
+
+The frontend is responsible for rendering the user interface, managing application state, and handling API requests, while the backend manages authentication, business logic, and data storage.
 
 ---
 
-## 👥 Team Collaboration Rules
+## 👥 Team Collaboration Guidelines
 
-* Single Git repository for frontend
-* Follow the modular folder structure
-* **Do not commit** `node_modules`
-* Always pull before pushing:
+- Maintain a single Git repository for the frontend.
+- Follow the existing project structure and coding standards.
+- Do **not** commit `node_modules`, build files, or environment files.
+- Pull the latest changes before starting new work:
 
 ```bash
 git pull origin main
 ```
 
+- Create meaningful commit messages.
+- Test your changes before creating a Pull Request.
+
 ---
 
 ## 🚫 Ignored Files
 
-The following files are excluded using `.gitignore`:
+The following files and directories are excluded using `.gitignore`:
 
-* `node_modules/`
-* `dist/`
-* `.env`
-* IDE/editor configuration files
+- `node_modules/`
+- `dist/`
+- `.env`
+- IDE/editor configuration files
 
 ---
 
-## 📌 Future Enhancements
+## 🗺️ Roadmap
 
-* Backend API integration
-* Protected routes & role-based access
-* Mobile responsiveness improvements
-* Performance optimization
-* PWA support
-* Unit & integration testing
+The following enhancements are planned for future releases:
+
+- Backend API integration improvements
+- Protected routes and enhanced role-based access
+- Mobile responsiveness improvements
+- Performance optimization
+- Progressive Web App (PWA) support
+- Unit and integration testing
 
 ---
 
 ## 📄 License
 
-This project is developed for **educational and internal purposes**.
-License information can be added if required.
+This project is intended for educational and internal development purposes.
 
 ---
 
@@ -236,5 +262,4 @@ License information can be added if required.
 
 Developed and maintained by the **Syncaura Frontend Team**.
 
-⭐ If you find this project useful, consider starring the repository!
-hello
+If you find this project useful, consider giving the repository a ⭐.

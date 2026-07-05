@@ -159,7 +159,7 @@ const SignIn = () => {
                     type="email"
                     placeholder="you@example.com"
                     {...register("email", validationRules.email)}
-                    className={`w-full border pl-10 pr-4 py-3 rounded-xl bg-white dark:bg-[#1e2132] text-gray-700 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-all ${
+                    className={`w-full border pl-10 pr-4 py-3 rounded-none bg-[#f0f4fb] dark:bg-[#1e1e1e] text-gray-700 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-all ${
                       errors.email
                         ? "border-red-400 focus:ring-red-300"
                         : "border-gray-300 dark:border-gray-600 focus:ring-blue-400"
@@ -182,7 +182,7 @@ const SignIn = () => {
                     type={showPassword ? "text" : "password"}
                     placeholder="Your password"
                     {...register("password", validationRules.password)}
-                    className={`w-full border pl-10 pr-10 py-3 rounded-xl bg-white dark:bg-[#1e2132] text-gray-700 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-all ${
+                    className={`w-full border pl-10 pr-10 py-3 rounded-none bg-[#f0f4fb] dark:bg-[#1e1e1e] text-gray-700 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-all ${
                       errors.password
                         ? "border-red-400 focus:ring-red-300"
                         : "border-gray-300 dark:border-gray-600 focus:ring-blue-400"
@@ -191,7 +191,7 @@ const SignIn = () => {
                   <button
                     type="button"
                     onClick={() => setShowPassword((p) => !p)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 btn-hover"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
                   >
                     {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                   </button>

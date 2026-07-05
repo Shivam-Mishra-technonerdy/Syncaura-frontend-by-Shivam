@@ -8,7 +8,7 @@ import {
   updateUserProfile,
 } from "../features/authThunks";
 
-const token = localStorage.getItem("accessToken") || localStorage.getItem("token");
+const storedToken = localStorage.getItem("accessToken") || localStorage.getItem("token");
 
 const initialState = {
   user: null,

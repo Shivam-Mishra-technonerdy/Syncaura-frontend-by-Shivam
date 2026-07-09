@@ -39,11 +39,9 @@ const resources = {
       cta_getStarted: "Get Started Free",
       cta_learnMore: "Learn More",
 
-      // ✅ NEWSLETTER SECTION
-      newsletter_title: "Stay in the loop",
-      newsletter_subtitle: "Get the latest updates, tips and new features delivered straight to your inbox.",
-      newsletter_placeholder: "Enter your email address",
-      newsletter_consent: "By subscribing you agree to our Privacy Policy. Unsubscribe at any time.",
+      // ✅ FAQ SECTION
+      faq_title: "Frequently Asked Questions",
+      faq_subtitle: "Everything you need to know about SyncAura. Can't find the answer you're looking for? Feel free to contact our support team.",
 
       // ✅ TOOLS SECTION
       tools_label: "Tools",
@@ -374,10 +372,8 @@ const resources = {
       cta_description: "हजारों टीमें पहले से ही Flowbit का उपयोग कर रही हैं।",
       cta_getStarted: "मुफ्त में शुरू करें",
       cta_learnMore: "और जानें",
-      newsletter_title: "अपडेट रहें",
-      newsletter_subtitle: "नवीनतम अपडेट, टिप्स और नई सुविधाएं सीधे अपने इनबॉक्स में पाएं।",
-      newsletter_placeholder: "अपना ईमेल पता दर्ज करें",
-      newsletter_consent: "सदस्यता लेकर आप हमारी गोपनीयता नीति से सहमत हैं। कभी भी सदस्यता रद्द करें।",
+      faq_title: "अक्सर पूछे जाने वाले प्रश्न",
+      faq_subtitle: "SyncAura के बारे में वह सब कुछ जो आपको जानना चाहिए। अपना जवाब नहीं मिल रहा? हमारी सहायता टीम से संपर्क करें।",
       tools_title: "काम पूरा करने के लिए जो चाहिए सब कुछ",
       tools_subtitle: "Flowbit आपकी टीम के लिए जरूरी सभी टूल्स एक जगह लाता है।",
       tools_task_title: "कार्य और परियोजना प्रबंधन",
@@ -667,10 +663,8 @@ const resources = {
       cta_description: "Miles de equipos ya usan Flowbit para colaborar de manera más inteligente.",
       cta_getStarted: "Empieza gratis",
       cta_learnMore: "Saber más",
-      newsletter_title: "Mantente informado",
-      newsletter_subtitle: "Recibe las últimas actualizaciones, consejos y nuevas funciones en tu bandeja de entrada.",
-      newsletter_placeholder: "Ingresa tu correo electrónico",
-      newsletter_consent: "Al suscribirte aceptas nuestra Política de Privacidad. Cancela cuando quieras.",
+      faq_title: "Preguntas Frecuentes",
+      faq_subtitle: "Todo lo que necesitas saber sobre SyncAura. ¿No encuentras la respuesta? Contacta con nuestro equipo de soporte.",
       tools_title: "Todo lo que necesitas para trabajar",
       tools_subtitle: "Flowbit reúne las herramientas esenciales que tu equipo necesita.",
       tools_task_title: "Gestión de tareas y proyectos",

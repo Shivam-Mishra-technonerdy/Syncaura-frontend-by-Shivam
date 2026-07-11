@@ -59,6 +59,8 @@
 @theme {
   --font-poppin-reg: "Poppine-reg", sans-serif;
   --font-anta: "Anta", sans-serif;
+  /* Responsive breakpoints used across the app:
+     sm = 640px, md = 768px, lg = 1024px, xl = 1280px, 2xl = 1536px */
   --breakpoint-xs: 370px;
    --breakpoint-xsm: 470px;
     --breakpoint-xssm: 500px;

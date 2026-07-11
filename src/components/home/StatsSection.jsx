@@ -3,7 +3,7 @@ import React from 'react';
 const StatsSection = () => {
   return (
     <section className="w-full py-8 md:py-16" style={{ backgroundColor: 'var(--bg-primary)' }}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
         {/* Header */}
         <div className="mb-8 md:mb-12">
           <p className="text-sm md:text-sm font-medium mb-2 md:mb-3" style={{ color: 'var(--text-secondary)' }}>

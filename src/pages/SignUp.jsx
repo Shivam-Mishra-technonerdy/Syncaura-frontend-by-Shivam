@@ -226,9 +226,9 @@ const SignUp = () => {
         style={{ maxWidth: 980 }}
       >
         <motion.div
-          className="relative flex shadow-2xl overflow-hidden"
+          className="relative flex flex-col lg:flex-row shadow-2xl overflow-hidden"
           style={{
-            minHeight: 620,
+            minHeight:620,
             background: `linear-gradient(160deg, ${t.curveStart} 0%, ${t.curveEnd} 100%)`,
           }}
           initial={{ opacity: 0, y: 28 }}
@@ -295,12 +295,23 @@ const SignUp = () => {
               />
 
               {/* BIG BLUE CURVE */}
-              <circle
-                cx="950"
-                cy="-70"
-                r="670"
-                fill="url(#shapeGrad)"
-              />
+              {/* Desktop */}
+<circle
+  className="hidden lg:block"
+  cx="950"
+  cy="-70"
+  r="670"
+  fill="url(#shapeGrad)"
+/>
+
+{/* Mobile */}
+<circle
+  className="block lg:hidden"
+  cx="1103"
+  cy="-50"
+  r="345"
+  fill="url(#shapeGrad)"
+/>
 
               {/* SMALL BOTTOM CIRCLE */}
               <circle
@@ -315,13 +326,21 @@ const SignUp = () => {
 
           {/* LEFT SIDE */}
           <div
-            style={{
-              width: "36%",
-              zIndex: 30,
-              position: "centre",
-            }}
-            className="px-14 py-14 flex flex-col justify-center"
-          >
+  className="
+    w-full
+    lg:w-[40%]
+    px-6
+    sm:px-8
+    lg:px-14
+    py-10
+    flex
+    flex-col
+    justify-center
+  "
+  style={{
+    zIndex: 30,
+  }}
+>
 
             <h1
               style={{ color: t.titleColor }}
@@ -523,7 +542,7 @@ const SignUp = () => {
           {/* RIGHT SIDE */}
           <div
             style={{ zIndex: 25 }}
-            className="relative flex-1 overflow-hidden"
+                  className="hidden lg:flex flex-1 relative overflow-hidden"
           >
 
             {/* TOGGLE */}
@@ -549,13 +568,10 @@ const SignUp = () => {
               src="/images/Auth/loginHuman.png"
               alt="Sign up illustration"
               draggable={false}
-              className="absolute object-contain select-none"
+              className="absolute bottom-0 right-0 object-contain select-none"
               style={{
-                height: "115%",
-                width: "200%",
-                top: "10%",
-                left: "59%",
-                transform: "translateX(-40%)",
+                width: "85%",
+                maxWidth: "500px",
                 zIndex: 40,
               }}
             />

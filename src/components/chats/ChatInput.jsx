@@ -86,10 +86,10 @@ export default function ChatInput() {
   };
 
   return (
-    <div className="flex items-center gap-3 px-4 relative bottom-2 left-0">
+    <div className="flex items-center gap-2 md:gap-3 px-2 md:px-4 py-2 relative bottom-2 left-0">
       {/* Emoji Picker */}
       {showEmoji && (
-        <div className="absolute bottom-16 left-4 z-50">
+        <div className="absolute bottom-16 left-2 md:left-4 z-50">
           <EmojiPicker onEmojiClick={handleEmojiClick} theme="auto" />
         </div>
       )}
@@ -110,7 +110,7 @@ export default function ChatInput() {
             onClick={() => setShowEmoji(false)}
             onChange={(e) => setText(e.target.value)}
             placeholder="Message"
-            className="w-full text-[#656464] placeholder:text-[#656464] dark:text-gray-200 dark:placeholder:text-gray-200 rounded-full px-4 py-2 outline-none text-sm bg-transparent"
+            className="w-full text-[#656464] placeholder:text-[#656464] dark:text-gray-200 dark:placeholder:text-gray-200 rounded-full px-2 md:px-4 py-2 outline-none text-sm bg-transparent"
           />
         </div>
 

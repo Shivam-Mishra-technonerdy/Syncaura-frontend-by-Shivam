@@ -69,11 +69,10 @@ const Newsletter = () => {
               color: 'var(--text-primary)'
             }}
           />
-
-          <button
-            type="submit"
-            className="w-full sm:w-auto px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity"
-            style={{
+          <button 
+            onClick={handleSubmit}
+            className="px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity whitespace-nowrap btn-hover" 
+            style={{ 
               backgroundColor: 'var(--accent-color)',
               color: 'var(--bg-primary)'
             }}

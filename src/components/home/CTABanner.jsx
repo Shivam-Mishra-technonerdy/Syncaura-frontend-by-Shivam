@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import ctaTeamMeeting from "../../assets/cta-team-meeting.png";
+import { Link } from "react-router-dom";
 
 const CTABanner = () => {
   const navigate = useNavigate();
@@ -37,20 +38,15 @@ const CTABanner = () => {
             <p className="text-sm md:text-base lg:text-lg text-white/90 max-w-xl">
               Manage tasks, chat, meet, and track performance all in one place.
             </p>
-
-            {/* BUTTONS */}
-            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-
-              <button
-                onClick={() => navigate('/sign-up')}
-                className="w-full sm:w-auto px-6 py-3 bg-white text-gray-900 text-sm font-medium hover:opacity-90 transition-opacity rounded"
-              >
-                Get started
-              </button>
-
-              <button
-                className="w-full sm:w-auto px-6 py-3 border border-white text-white text-sm font-medium hover:bg-white/10 transition-colors rounded"
-              >
+            
+            {/* Buttons - SIDE BY SIDE on mobile! */}
+            <div className="flex gap-3 md:gap-4 w-full max-w-md">
+              <Link to="/sign-up" className="flex-1">
+                <button className="w-full px-6 py-3 bg-white text-gray-900 text-sm font-medium hover:opacity-90 transition-colors btn-hover">
+                  Get started
+                </button>
+              </Link>
+              <button className="flex-1 px-6 py-3 border-2 border-white bg-transparent text-white text-sm font-medium hover:bg-white/10 transition-colors btn-hover">
                 Learn more
               </button>
 

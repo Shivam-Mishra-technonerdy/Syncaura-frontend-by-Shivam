@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Sun, Moon } from 'lucide-react';
+import { useNavigate, Link } from "react-router-dom";
 import { useDarkMode } from "../../hooks/useDarkMode";
-import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -178,7 +178,7 @@ const Navbar = () => {
           </div>
 
           <button
-            onClick={() => navigate("/sign-up")}
+            onClick={() => navigate("/SignUp")}
             className="px-4 py-1 text-sm font-medium rounded-[10px]"
             style={{
               backgroundColor: "var(--accent-color)",

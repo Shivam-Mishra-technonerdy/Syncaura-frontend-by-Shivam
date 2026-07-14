@@ -1,10 +1,11 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import heroTeam from "../../assets/hero-team.png";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+
   const scrollToFeatures = (e) => {
     e.preventDefault();
     const element = document.getElementById('features');
@@ -14,15 +15,23 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="w-full pt-6 md:pt-16 pb-6 md:pb-8" style={{ backgroundColor: 'var(--bg-primary)' }}>
+    <section
+      id="home"
+      className="w-full pt-10 md:pt-16 pb-10"
+      style={{ backgroundColor: 'var(--bg-primary)' }}
+    >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          {/* Text Content */}
-          <div className="space-y-4 md:space-y-6">
-            {/* Mobile: Single line | Desktop: Line break */}
-            <h1 className="text-[28px] md:text-4xl lg:text-5xl font-bold leading-tight" style={{ color: 'var(--text-primary)' }}>
-              <span className="md:hidden">Welcome to Flowbit</span>
-              <span className="hidden md:inline">Welcome to<br />Flowbit</span>
+
+        {/* 🔥 FIX: proper flex layout instead of grid */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-10">
+
+          {/* TEXT SECTION */}
+          <div className="w-full md:w-1/2 space-y-5 text-center md:text-left">
+
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight"
+              style={{ color: 'var(--text-primary)' }}
+            >
+              Welcome to <br className="hidden md:block" /> Flowbit
             </h1>
 
             <p className="text-[14px] md:text-lg lg:text-xl leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
@@ -46,7 +55,7 @@ const Hero = () => {
 
               <button
                 onClick={scrollToFeatures}
-                className="px-8 md:px-5 py-2.5 border text-sm font-medium hover:opacity-70 transition-opacity btn-hover"
+                className="w-full sm:w-auto px-6 py-2.5 border text-sm font-medium hover:opacity-70 transition-opacity"
                 style={{
                   borderColor: 'var(--border-color)',
                   color: 'var(--text-primary)'
@@ -54,22 +63,19 @@ const Hero = () => {
               >
                 Features
               </button>
-            </div>
 
           </div>
+        </div>
 
-          {/* Image */}
-          <div className="flex justify-center md:justify-start mt-6 md:mt-0">
-            <div className="w-full max-w-sm md:max-w-xl">
-              <img
-                src={heroTeam}
-                alt="Team collaboration illustration"
-                className="w-full h-auto"
-                fetchPriority="high"
-                decoding="async"
-              />
-            </div>
+          {/* IMAGE */}
+          <div className="w-full md:w-1/2 flex justify-center">
+            <img
+              src={heroTeam}
+              alt="Team collaboration illustration"
+              className="w-full max-w-xs sm:max-w-sm md:max-w-lg h-auto"
+            />
           </div>
+
         </div>
       </div>
     </section>

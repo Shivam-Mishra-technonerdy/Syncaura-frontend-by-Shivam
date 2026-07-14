@@ -11,9 +11,14 @@ const FeatureShowcase = () => {
           <h2 className="text-[19px] md:text-xl font-bold mb-3 md:mb-4" style={{ color: 'var(--text-primary)' }}>
             Work Smarter. Collaborate Faster. Grow Together.
           </h2>
-          <p className="text-md md:text-base max-w-3xl mx-auto leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+
+          <p
+            className="text-sm sm:text-base max-w-2xl mx-auto leading-relaxed"
+            style={{ color: 'var(--text-secondary)' }}
+          >
             From planning and collaboration to deployment and performance tracking — everything in one platform.
           </p>
+
         </div>
 
         {/* Content Card */}
@@ -50,9 +55,11 @@ const FeatureShowcase = () => {
                   />
                 </div>
               </div>
+
             </div>
 
           </div>
+
         </div>
 
       </div>

@@ -1,4 +1,3 @@
-
 import ToggleSwitch from "../../dashboard/Header/ToggleSwitch";
 import { useSelector } from "react-redux";
 import { Menu } from "lucide-react";
@@ -24,14 +23,8 @@ const Header = ({ setOpen }) => {
         {/* LEFT SECTION */}
         <div className="flex items-center gap-3 sm:gap-5">
           {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden"
-            onClick={() => setOpen(true)}
-          >
-            <Menu
-              size={28}
-              className="text-black dark:text-white"
-            />
+          <button className="lg:hidden" onClick={() => setOpen(true)}>
+            <Menu size={28} className="text-black dark:text-white" />
           </button>
 
           {/* Profile Section */}
@@ -44,9 +37,7 @@ const Header = ({ setOpen }) => {
             {/* Profile Text */}
             <div className="flex flex-col">
               <div className="flex gap-1 items-center text-black dark:text-white">
-                <h1 className="font-light text-base sm:text-lg">
-                  Hello!
-                </h1>
+                <h1 className="font-light text-base sm:text-lg">Hello!</h1>
                 <h1 className="font-semibold text-base sm:text-lg">
                   {user?.name || "John Doe"}
                 </h1>
@@ -60,9 +51,9 @@ const Header = ({ setOpen }) => {
         </div>
 
         {/* RIGHT SECTION */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4 items-end">
+        <div className="flex items-center gap-2 sm:gap-4">
           {/* Desktop date */}
-          <div className="hidden xsm:flex items-center gap-2 text-base dark:text-white">
+          <div className="hidden sm:flex items-center gap-2 text-base dark:text-white">
             <div className="flex items-center justify-center gap-1.5">
               <span className="font-bold">{dayName}</span>
               <span className="font-light"> | {formattedDate}</span>
@@ -71,9 +62,17 @@ const Header = ({ setOpen }) => {
             <ToggleSwitch />
           </div>
 
-          {/* Mobile toggle */}
-          <div className="xsm:hidden flex flex-col items-center">
+          {/* Mobile controls */}
+          <div className="flex sm:hidden items-center gap-2">
             <ToggleSwitch />
+            <button
+              type="button"
+              onClick={() => setOpen?.(true)}
+              className="inline-flex items-center justify-center rounded-full p-2 text-black dark:text-white hover:bg-black/5 dark:hover:bg-white/10"
+              aria-label="Open sidebar"
+            >
+              <Menu size={22} />
+            </button>
           </div>
         </div>
       </div>

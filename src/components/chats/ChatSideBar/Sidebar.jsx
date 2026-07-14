@@ -244,14 +244,18 @@ export default function Sidebar({ chats, selectedChat, onSelect, onViewChange })
   return (
     <aside
       className={
-        `relative w-full md:w-80 flex flex-col border-r bg-[#FFFFFF] dark:bg-[#2E2F2F] border-[#E0DDDD] dark:border-[#575757] ` +
-        (selectedChat ? "hidden md:flex" : "flex")
-      }
+  `relative w-full sm:w-72 md:w-80 lg:w-80
+   flex flex-col border-r
+   bg-[#FFFFFF] dark:bg-[#2E2F2F]
+   border-[#E0DDDD] dark:border-[#575757]
+   ` +
+   (selectedChat ? "hidden md:flex" : "flex")
+}
     >
       {/* Header */}
-      <div className="p-4 border-b border-[#E0DDDD] dark:border-[#575757]">
+      <div className="p-3  md:p-4 border-b border-[#E0DDDD] dark:border-[#575757]">
         <div className="flex w-full items-center justify-between">
-          <h2 className="text-3xl text-[#000000] dark:text-[#FFFFFF] font-semibold mb-2">
+          <h2 className="text-2xl md:text-3xl text-[#000000] dark:text-[#FFFFFF] font-semibold mb-2">
             {getTitle()}
           </h2>
           
@@ -261,7 +265,7 @@ export default function Sidebar({ chats, selectedChat, onSelect, onViewChange })
               onClick={() => setShowMenu(!showMenu)}
               className="p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors btn-hover"
             >
-              <MoreVertical className="size-7 text-black dark:text-white" />
+              <MoreVertical className="size-6 md:size-7 text-black dark:text-white" />
             </button>
 
             {/* Dropdown Menu - Positioned to the RIGHT as per Figma */}
@@ -396,7 +400,7 @@ export default function Sidebar({ chats, selectedChat, onSelect, onViewChange })
 
         {/* Search bar - Only show in chat and archived views */}
         {currentView !== "starred" && (
-          <div className="flex mt-2 items-center gap-2 bg-[#EDEDED] dark:bg-[#000000] border border-[#989696] px-3 py-2 rounded-lg">
+          <div className="flex mt-2 items-center gap-2 bg-[#EDEDED] dark:bg-[#000000] border border-[#989696]  px-2 md:px-3 py-2  rounded-lg">
             <Search size={16} className="text-gray-500" />
             <input
               onChange={(e) => setSearch(e.target.value)}
@@ -418,7 +422,7 @@ export default function Sidebar({ chats, selectedChat, onSelect, onViewChange })
               <div
                 key={c.id}
                 onClick={() => handleChatSelect(c)}
-                className={`relative flex items-center gap-3 px-4 py-3 cursor-pointer
+                className={`relative flex items-center gap-2 md:gap-3 px-3 md:px-4 py-3 cursor-pointer
                   hover:bg-gray-100 dark:hover:bg-gray-700
                   ${selectedChat?.id === c.id && !selectMode ? "bg-[#E2EBFF] dark:bg-[#144344]" : ""}
                   ${selectedChats.find((sc) => sc.id === c.id) ? "bg-[#E2EBFF] dark:bg-[#144344]" : ""}`}
@@ -434,11 +438,13 @@ export default function Sidebar({ chats, selectedChat, onSelect, onViewChange })
                   />
                 )}
 
-                <Avatar label={c.avatar} gradient={c.gradient} />
+                <div className="flex-shrink-0">
+                    <Avatar label={c.avatar} gradient={c.gradient} />
+                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex justify-between items-center">
                     <div className="flex items-center gap-2">
-                      <p className="font-medium text-lg text-black dark:text-white truncate">
+                      <p className="font-medium text-sm md:text-lg text-black dark:text-white truncate">
                         {c.name}
                       </p>
                       {/* Mute icon */}
@@ -449,7 +455,7 @@ export default function Sidebar({ chats, selectedChat, onSelect, onViewChange })
                         />
                       )}
                     </div>
-                    <span className="text-sm text-black dark:text-white">{c.time}</span>
+                    <span className="text-xs md:text-sm text-black dark:text-white">{c.time}</span>
                   </div>
                   <p className="text-xs text-black dark:text-white truncate">{c.last}</p>
                 </div>
@@ -481,7 +487,7 @@ export default function Sidebar({ chats, selectedChat, onSelect, onViewChange })
       <button
         className="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-blue-600 dark:bg-[#73FBFD] flex items-center justify-center text-white dark:text-black shadow-lg hover:scale-105 transition-transform btn-hover"
       >
-        <Edit3 size={20} />
+        <Edit3 className="size-5 md:size-6" />
       </button>
     </aside>
   );

@@ -106,8 +106,8 @@ export default function App() {
           <Routes>
             <Route element={<ProtectRoute publicOnly />}>
               <Route path="/" element={<Home />} />
-              <Route path="/sign-in" element={<SignIn />} />
-              <Route path="/sign-up" element={<SignUp />} />
+              <Route path="/signin" element={<SignIn />} />
+              <Route path="/signup" element={<SignUp />} />
               <Route path="/auth/callback" element={<AuthCallback />} />
               <Route
                 path="/auth/github/callback"

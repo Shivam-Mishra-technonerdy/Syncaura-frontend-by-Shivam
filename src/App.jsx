@@ -25,7 +25,7 @@ const AuthCallback = lazy(() => import("./pages/AuthCallback"));
 const GithubCallback = lazy(() => import("./pages/GithubCallback"));
 
 import Header from "./components/Meeting/Header/Header";
-import MobileSidebar from "./components/MobileSidebar";
+import MobileSidebar from "./components/navigation/MobileSidebar";
 
 import { ToastContainer, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

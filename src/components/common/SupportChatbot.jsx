@@ -34,6 +34,7 @@ export default function SupportChatbot() {
     const [input, setInput] = useState("");
     const [loading, setLoading] = useState(false);
     const [micError, setMicError] = useState("");
+    const [isHovered, setIsHovered] = useState(false);
 
     const chatRef = useRef(null);
     const bottomRef = useRef(null);
@@ -146,28 +147,34 @@ export default function SupportChatbot() {
 
     return (
         <>
-            <div className="fixed bottom-28 right-10 z-30 flex items-center gap-3">
+            <div 
+                className="fixed bottom-28 right-10 z-30 flex items-center gap-3"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+            >
 
                 {/* Tooltip bubble */}
-                <motion.div
-                    initial={{ opacity: 0, x: 20, scale: 0.8 }}
-                    animate={{
-                        opacity: 1,
-                        x: 0,
-                        scale: [1, 1.05, 1],
-                        y: [0, -4, 0],
-                    }}
-                    transition={{
-                        duration: 0.6,
-                        delay: 0.3,
-                        ease: "easeOut",
-                        repeat: Infinity,
-                        repeatDelay: 3,
-                    }}
-                    className="bg-blue-500 text-white absolute -top-9 rounded-br-none right-10 w-40 text-xs px-3 py-2 rounded-full shadow-md"
-                >
-                    Need help? ask me!
-                </motion.div>
+                {isHovered && !open && (
+                    <motion.div
+                        initial={{ opacity: 0, x: 20, scale: 0.8 }}
+                        animate={{
+                            opacity: 1,
+                            x: 0,
+                            scale: [1, 1.05, 1],
+                            y: [0, -4, 0],
+                        }}
+                        transition={{
+                            duration: 0.6,
+                            delay: 0.3,
+                            ease: "easeOut",
+                            repeat: Infinity,
+                            repeatDelay: 3,
+                        }}
+                        className="bg-blue-500 text-white absolute -top-9 rounded-br-none right-10 w-40 text-xs px-3 py-2 rounded-full shadow-md"
+                    >
+                        Need help? ask me!
+                    </motion.div>
+                )}
 
 
                 {/* Button with pulse + float */}
